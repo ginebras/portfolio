@@ -25,6 +25,10 @@ const Modal=styled(motion.div)`
 	font-family:'Urbanist';
 	line-height:1.5;
 	animation:${hideModal} 5s 10s 1 forwards;
+
+	@media (max-width:600px){
+		display:none;
+	}
 `
 
 const Name=styled.strong`
@@ -43,7 +47,7 @@ export default function ThanksModal({click}){
 		<ThemeProvider theme={DarkTheme}>		
 			<Modal
 				initial={{ y:250}}
-				animate={{ y:0 }}
+				animate={{ y:0,display:'none' }}
 				transition={{type:'spring',duration:5}}
 			>
 				<div>

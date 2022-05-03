@@ -9,10 +9,14 @@ import BigTitle from '../subComponents/BigTitle';
 
 const Container=styled.div`
 	position:relative;
-	width:100%;
+	width:100vw;
 	height:100vh;
 	overflow:hidden;
 	background-color:grey;
+
+	@media (max-width:600px){
+		overflow:auto;
+	}
 `
 
 const AboutContainer=styled.div`
@@ -20,7 +24,7 @@ const AboutContainer=styled.div`
 	top:65%;
 	left:25%;
 	transform:translate(-25%,-65%);
-	width:100vh;
+	width:50vw;
 	height:50vh;
 	border:1px solid white;
 	color:white;
@@ -28,12 +32,18 @@ const AboutContainer=styled.div`
 	backdrop-filter:blur(1px);
 
 	font-family:'Ubutntu Mono',monospace;
-	font-styled:italic;
+	font-style:italic;
 	line-height:1.5;
 
 	display:flex;
 	align-items:center;
 	justify-content:center;
+
+	@media (max-width:600px){
+		height:fit-content;
+		top:90%;
+		left:35%;
+	}
 `
 
 const floating=keyframes`
@@ -72,13 +82,13 @@ export default function AboutPage(){
 				<NavLinks theme='dark' />
 
 				<AboutContainer>
-					I'm a Web Developer from Buenos Aires, Argentina. I like to create apps with a controlled backend and a sweet frontend with a good design
+					I'm a Web Developer from Buenos Aires, Argentina. I like to create apps with a controlled backend,a sweet frontend with a good design
 					<br/>
 					<br/>
-					I'm interested in the whole Fullstack and i'm very interested about discovering new and different ways to create apps.
+					I'm interested in the whole Fullstack development and i'm very interested about discovering new and different ways to create apps.
 					<br/>
 					<br/>
-					I started at 15yo with the Web Development, the 1th framework i used was Angular and i was fascinated by the way it works and the things you could do with it.
+					I started at 16yo with the Web Development, the 1th framework i used was Angular and i was fascinated by the way it works and the things you could do with it.
 					But quickly discovered ReactJS and since then i been using it so far, i really enjoy using it,i even made this using ReactJS.
 				</AboutContainer>
 

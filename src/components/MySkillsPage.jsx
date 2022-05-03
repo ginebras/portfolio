@@ -2,7 +2,6 @@ import styled,{ ThemeProvider }  from 'styled-components';
 
 import PowerButton from '../subComponents/PowerButton';
 import LogoComponent from '../subComponents/LogoComponent';
-import NavLinks from '../subComponents/NavLinks';
 import { LightTheme } from './Themes';
 import { Develope } from '../data/AllSvg';
 
@@ -15,6 +14,15 @@ const Box=styled.div`
 	display:flex;
 	justify-content:space-evenly;
 	align-items:center;
+
+	@media (max-width:600px){
+		overflow-x:hidden;
+		width:100vw;
+		padding-top:5rem;
+		flex-direction:column;
+		min-height:100vh;
+		justify-content:flex-start;
+	}
 `
 
 const Main=styled.div`
@@ -37,6 +45,16 @@ const Main=styled.div`
 		background-color:${props=>props.theme.text};
 		color:${props=>props.theme.body};
 	}
+
+	@media (max-width:1024px){
+		height:50vh;
+	}
+
+	@media (max-width:600px){
+		width:65vw;
+		height:fit-content;
+		margin-top:2.5rem;
+	}
 `
 
 const TitleMain=styled.h2`
@@ -46,11 +64,19 @@ const TitleMain=styled.h2`
 	align-items:center;
 	justify-content:center;
 	padding-bottom:1rem;
+
+	@media(max-width:1024px){
+		padding-bottom:0;
+	}
 `
 
 const TextMain=styled.span`
 	font-size:20px;
 	padding-bottom:2rem;
+
+	@media(max-width:1024px){
+		padding-bottom:0;
+	}
 `
 
 const SubTitle=styled.h3`
@@ -61,6 +87,14 @@ const SubTitle=styled.h3`
 const ListsContainer=styled.div`
 	display:grid;
 	grid-template-columns:repeat(3,1fr);
+
+	@media (max-width:1024px){
+		grid-template-columns:repeat(2,1fr);
+	}
+
+	@media (max-width:600px){
+		grid-template-columns:repeat(2,1fr);
+	}
 `
 
 const List=styled.span`
@@ -69,6 +103,8 @@ const List=styled.span`
 	word-spacing:5px;
 	padding-bottom:1rem;
 	align-items:center;
+
+
 `
 
 export default function MySkills(){
@@ -76,7 +112,6 @@ export default function MySkills(){
 		<ThemeProvider theme={LightTheme}>
 			<Box>
 				<LogoComponent theme='light' />
-				<NavLinks theme='light' />
 				<PowerButton/>
 
 				<Main>
@@ -85,9 +120,9 @@ export default function MySkills(){
 						
 
 					<TextMain>
-						I like to create apis because i see them 
-						as the logic part of a Stack and i get fun
-						trying to think how to solve a problem
+						I mostly use NodeJS and MongoDB for backend 
+						but i like PHP and others ways to create apis,
+						and other databases too.
 
 					</TextMain>
 
@@ -112,7 +147,7 @@ export default function MySkills(){
 
 					<TextMain>
 						I like to create well-regarded applications,intuitives,
-						and with a good design, even im not creative.
+						and with a good design.
 					</TextMain>
 
 					<SubTitle>SKILLS</SubTitle>

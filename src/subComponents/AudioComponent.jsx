@@ -1,6 +1,7 @@
 import { useState,useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 import audio from '../assets/audio/saidit.mp3';
+import { DarkTheme } from '../components/Themes';
 
 const Box=styled.div`
 	position:fixed;
@@ -44,8 +45,8 @@ const play=keyframes`
 `
 
 const Line=styled.span`
-	background:${props=>props.theme.text};
-	border:1px solid ${props=>props.theme.text};
+	background:${props=>props=>props.theme==='dark' ? DarkTheme.text : DarkTheme.body};
+	border:1px solid ${props=>props=>props.theme==='dark' ? DarkTheme.text : DarkTheme.body};
 
 	animation:${play} 1s ease infinite;
 	animation-play-state:${props=>props.click ? 'running': 'paused'};
@@ -54,7 +55,7 @@ const Line=styled.span`
 	margin:0 0.1rem;
 `
 
-export default function AudioComponent(){
+export default function AudioComponent(props){
 	const ref=useRef();
 	const [click,setClick]=useState(false);
 
@@ -69,11 +70,11 @@ export default function AudioComponent(){
 
 	return(
 		<Box onClick={()=>handleClick()} >
-			<Line click={click} />
-			<Line click={click} />
-			<Line click={click} />
-			<Line click={click} />
-			<Line click={click} />
+			<Line theme={props.theme} click={click} />
+			<Line theme={props.theme} click={click} />
+			<Line theme={props.theme} click={click} />
+			<Line theme={props.theme} click={click} />
+			<Line theme={props.theme} click={click} />
 
 			<audio src={audio} ref={ref} loop />
 		</Box>

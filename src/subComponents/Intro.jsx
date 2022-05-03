@@ -1,3 +1,4 @@
+import { useState,useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
@@ -28,6 +29,36 @@ const Box=styled(motion.div)`
 	border-left:2px solid ${props=>props.theme.body};
 	border-right:2px solid ${props=>props.theme.text};
 	z-index:20;
+
+	@media (max-width:1024px){
+		height:40vh;
+	}
+
+	@media (max-width:600px){
+		height:50vh;
+		flex-direction:column;
+		background:linear-gradient(
+			to right,
+			${props=>props.theme.text} 100%,
+			${props=>props.theme.body} 100%) bottom,
+		linear-gradient(
+			to right,
+			${props=>props.theme.body} 100%,
+			${props=>props.theme.text} 100%) top;
+
+		background-repeat:no-repeat;
+		background-size:100% 2px;
+		border-left:2px solid ${props=>props.theme.body};
+		border-right:2px solid ${props=>props.theme.text};
+
+		&>*:first-child{
+			border-right:2px solid ${props=>props.theme.body};
+		}
+		&>*:last-child{
+			border-left:2px solid ${props=>props.theme.text};
+		}
+	}
+
 `
 
 const SubBox=styled.div`
@@ -40,7 +71,23 @@ const SubBox=styled.div`
 		bottom:0;
 		height:auto;
 		position:absolute;
+
+		@media (max-width:1024px){
+			top:50%;
+			transform:translateY(-50%);
+		}
+
+		@media (max-width:600px){
+			position:relative;
+			width:100%;
+			height:100%;
+		}
 	}	
+
+	@media (max-width:600px){
+		justify-content:center;
+		height:50%;
+	}
 `
 
 const Text=styled.div`
@@ -59,15 +106,30 @@ const Text=styled.div`
 		font-size:calc(0.5rem + 1.5vw);
 		font-weight:300;
 	}
+
+	@media (max-width:600px){
+		padding:2rem 1rem;
+	}
 `
 
 
 
-export default function Intro(){
+export default function Intro({device}){
+	const [height,setHeight]=useState('55vh');
+
+	useEffect(()=>{
+		if(device==='pc')
+			setHeight('55vh');
+		else if(device==='tablet')
+			setHeight('40vh');
+		else
+			setHeight('50vh');
+	},[device])
+
 	return(
 		<Box
 			initial={{height:0,}}
-			animate={{height:'55vh'}}
+			animate={{height:height}}
 			transition={{type:'spring', duration:2, delay:1}}
 		>
 			<SubBox>

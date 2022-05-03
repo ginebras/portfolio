@@ -22,7 +22,7 @@ const LogoContainer=styled.div`
 const Line=styled(motion.span)`
 	width:2px;
 	height:8rem;
-	background-color:${props=>props.theme==='dark' ? DarkTheme.text : DarkTheme.body};
+	background-color:${props=>props.device==='pc' || props.device==='tablet' ? (props.theme==='dark' ? DarkTheme.text : DarkTheme.body) : DarkTheme.body};
 `
 
 export default function NavLinks(props){
@@ -41,7 +41,7 @@ export default function NavLinks(props){
 				}}
 			>
 				<a style={{color:'inherit'}} target="_blank" href="https://github.com/ginebras" >
-					<Github width={30} height={30} fill={props.theme === 'dark' ? DarkTheme.text : DarkTheme.body} />
+					<Github width={30} height={30} fill={props.device==='pc' || props.device==='tablet'? (props.theme === 'dark' ? DarkTheme.text : DarkTheme.body) : DarkTheme.body} />
 				</a>
 			</motion.div>
 
@@ -58,11 +58,12 @@ export default function NavLinks(props){
 				}}
 			>
 				<a style={{color:'inherit'}} target="_blank" href="https://www.instagram.com/alejo.francop/">
-					<Instagram width={30} height={30} fill={props.theme === 'dark' ? DarkTheme.text : DarkTheme.body} />
+					<Instagram width={30} height={30} fill={props.device==='pc' || props.device==='tablet'? (props.theme === 'dark' ? DarkTheme.text : DarkTheme.body) : DarkTheme.body} />
 				</a>
 			</motion.div>
 			<Line 
 				theme={props.theme}
+				device={props.device}
 				initial={{
 					height:0
 				}}

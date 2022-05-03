@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
 
@@ -40,7 +40,7 @@ const About=styled.a`
 `
 
 const Work=styled.a`
-	color:${props=>props.click? props.theme.body : props.theme.text};
+	color:${props=>props.device==='pc' || props.device==='tablet' ? (props.click? props.theme.body : props.theme.text) : props.theme.text};
 	position:absolute;
 	top:50%;
 	left:6vh;
@@ -97,7 +97,7 @@ const Center=styled.div`
 	}
 `
 
-const DarkDiv=styled.div`
+const DarkPc=styled.div`
 	position:absolute;
 	top:0;
 	bottom:0;
@@ -109,26 +109,58 @@ const DarkDiv=styled.div`
 	transition:height 0.5s ease,width 1s ease 0.5s;
 `
 
+const DarkMobile=styled.div`
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	background-color:#000;
+	z-index:3;
+	transition:height 0.5s ease,width 1s ease 0.5s;
+	width:${props=>props.click ? '100%' : '0%'};
+	height:${props=>props.click ? '50%' : '0%'};
+`
+
 export default function Main(){
 	const [click,setClick]=useState(false);
+	const [deviceWidth,setDeviceWidth]=useState('pc');
+	const [thanks,setThanks]=useState(true);
+
+	useEffect(()=>{
+		if(thanks){
+			setTimeout(()=>{
+				setThanks(false);
+			},5000)
+		}
+	},[])
+
+	useEffect(()=>{
+		if(document.body.offsetWidth<600)
+			setDeviceWidth('mobile');
+		else if(document.body.offsetWidth<1024 && document.body.offsetWidth>600)
+			setDeviceWidth('tablet');
+		else
+			setDeviceWidth('pc');
+		
+	},[document.body.offsetWidth])
 
 	return(
 		<MainContainer>
 			
-			<DarkDiv click={click} />
+			{((deviceWidth==='pc') || (deviceWidth==='tablet')) && <DarkPc click={click} />}
+			{deviceWidth==='mobile' && <DarkMobile click={click} />}
 
 			<Container
 				initial={{ opacity:0}}
 				animate={{opacity:1}}
 				exit={{opacity:0}}
 			>
-				<AudioComponent />
+				<AudioComponent theme={click ? 'dark' : 'light'} />
 				<PowerButton/>
 				<LogoComponent theme={click ? 'dark' : 'light'}/>
-				<NavLinks theme={ click ? 'dark' : 'light'} />
+				<NavLinks theme={ click ? 'dark' : 'light'} device={deviceWidth} />
 				<ThanksModal click={click ? 'dark' : 'light'}/>
-
-				<ContactForm canOpen={ click ? 'no' : 'yes'}/>
+				<ContactForm canOpen={ click ? 'no' : 'yes'} theme={click ? 'dark' : 'light'}/>
 
 				<About href="/about">
 					<motion.h3
@@ -145,7 +177,7 @@ export default function Main(){
 					> About</motion.h3>
 				</About>
 
-				<Work href="/work" click={click} >
+				<Work href="/work" click={click} device={deviceWidth} >
 					<motion.h3
 						whileHover={{scale:1.1}}
 						whileTap={{scale:0.9}}
@@ -182,7 +214,7 @@ export default function Main(){
 					</Skills>
 				</BottomBar>
 
-				{ click ? <Intro click={click}  /> : null}
+				{ click ? <Intro click={click} device={deviceWidth} /> : null}
 			</Container>
 		</MainContainer>
 	)
