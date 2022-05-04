@@ -76,7 +76,7 @@ export default function WorkPage(){
 				>
 					<LogoComponent theme='dark' />
 					<PowerButton/>
-					<NavLinks theme='dark' />
+					<NavLinks theme='light' />
 
 					<Main ref={ref} variants={container} initial='hidden' animate='show' >
 						{ Work.map((w,index)=>(

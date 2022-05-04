@@ -228,7 +228,12 @@ export default function ContactForm({canOpen,theme}){
 				>
 					<ModalTop>
 						<Title>Contact me</Title>
-						<i className="bi bi-x-octagon" onClick={handleModal}></i>
+						<motion.i 
+							whileHover={{scale:1.1}}
+							whileTap={{scale:0.9}}
+							className="bi bi-x-octagon" 
+							onClick={handleModal}
+						></motion.i>
 					</ModalTop>
 
 					<Form onSubmit={handleSubmit(sendMessage)}>

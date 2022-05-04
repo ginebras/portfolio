@@ -16,7 +16,7 @@ export const Work = [
     {
         id:3,
         name:"Movies app with Redux",
-        description:"Built with ReactJS using context-api and api with NodeJS.",
+        description:"Built with ReactJS using redux-toolkit.",
         tags:["react",'redux-toolkit'],
         visit:'https://stackblitz.com/edit/react-kra4t6',
         github:"https://github.com/ginebras/movies-app-redux"
@@ -35,6 +35,14 @@ export const Work = [
         description:"Built with ReactJS, very simple and used EmailJS.",
         tags:["react"],
         github:"https://github.com/ginebras/portfolio-website"
+    },
+    {
+        id:6,
+        name:"Fashion studio",
+        description:"Built with ReactJS, practice to improve my skill with framer-motion.",
+        tags:["react","styled-components",'framer-motion'],
+        visit:'https://stackblitz.com/edit/react-n7w3t3',
+        github:"https://github.com/ginebras/fashion-studio/tree/master"
     },
 
 ] 
