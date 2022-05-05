@@ -16,6 +16,11 @@ const Box=styled.div`
 	background-color:${props=>props.theme.body};
 	height:400vh;
 	overflow:hidden;	
+
+	@media (max-width:600px){
+		height:600vh;
+
+	}
 `
 
 const Main=styled(motion.ul)`
@@ -76,7 +81,7 @@ export default function WorkPage(){
 				>
 					<LogoComponent theme='dark' />
 					<PowerButton/>
-					<NavLinks theme='light' />
+					<NavLinks theme='dark' device='pc'/>
 
 					<Main ref={ref} variants={container} initial='hidden' animate='show' >
 						{ Work.map((w,index)=>(

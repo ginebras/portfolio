@@ -16,6 +16,10 @@ const Container=styled.div`
 
 	@media (max-width:600px){
 		overflow:auto;
+		height:150vh;
+		display:flex;
+		align-items:center;
+		justify-content:center;
 	}
 `
 
@@ -41,8 +45,9 @@ const AboutContainer=styled.div`
 
 	@media (max-width:600px){
 		height:fit-content;
-		top:90%;
-		left:35%;
+		top:25%;
+		transform:translate(-25%,25%);
+		position:relative;
 	}
 `
 
