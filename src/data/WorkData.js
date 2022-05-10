@@ -44,5 +44,20 @@ export const Work = [
         visit:'https://stackblitz.com/edit/react-n7w3t3',
         github:"https://github.com/ginebras/fashion-studio/tree/master"
     },
+    {
+        id:7,
+        name:"Ecommerce API",
+        description:"Made with NodeJS,an api from an ecommerce, no front.",
+        tags:['nodejs','api'],
+        github:"https://github.com/ginebras/ecommerce-api"
+    },
+    {
+        id:8,
+        name:"Shopping cart",
+        description:"Made with ReactJS , used redux-toolkit using RTK Query, practice.",
+        tags:['react','redux-toolkit','rtk-query'],
+        visit:'https://stackblitz.com/edit/react-hs5z3x',
+        github:"https://github.com/ginebras/rr-shopping-cart"
+    },
 
 ] 

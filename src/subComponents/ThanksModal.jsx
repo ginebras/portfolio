@@ -42,12 +42,12 @@ const LinkVideo=styled(motion.a)`
 	font-style:Italic;
 `
 
-export default function ThanksModal({click}){
+export default function ThanksModal(){
 	return(
 		<ThemeProvider theme={DarkTheme}>		
 			<Modal
 				initial={{ y:250}}
-				animate={{ y:0,display:'none' }}
+				animate={{ y:0 }}
 				transition={{type:'spring',duration:5}}
 			>
 				<div>

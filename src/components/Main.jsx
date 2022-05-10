@@ -159,7 +159,7 @@ export default function Main(){
 				<PowerButton/>
 				<LogoComponent theme={click ? 'dark' : 'light'}/>
 				<NavLinks theme={ click ? 'dark' : 'light'} device={deviceWidth} />
-				<ThanksModal click={click ? 'dark' : 'light'}/>
+				{ deviceWidth!=='mobile' && <ThanksModal/>}
 				<ContactForm canOpen={ click ? 'no' : 'yes'} theme={click ? 'dark' : 'light'}/>
 
 				<About href="/about">
