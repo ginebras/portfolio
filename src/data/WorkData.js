@@ -59,5 +59,12 @@ export const Work = [
         visit:'https://stackblitz.com/edit/react-hs5z3x',
         github:"https://github.com/ginebras/rr-shopping-cart"
     },
+    {
+      id:9,
+      name:"Netflix app",
+      description:"Made with ReactJS , used redux-toolkit using RTK Query, added an admin dashboard and api with NodeJS.",
+      tags:['react','redux-toolkit','rtk-query','scss','nodejs','context-api'],
+      github:"https://github.com/ginebras/netflis-app"  
+    }
 
 ] 

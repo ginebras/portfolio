@@ -14,11 +14,11 @@ import BigTitle from '../subComponents/BigTitle';
 const Box=styled.div`
 	position:relative;
 	background-color:${props=>props.theme.body};
-	height:400vh;
+	height:calc(${Work.length}00vh - 200vh);
 	overflow:hidden;	
 
 	@media (max-width:600px){
-		height:600vh;
+		height:calc(${Work.length}00vh - 200vh);
 
 	}
 `
